@@ -1,0 +1,45 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.artmedia.artyom.hobby360">
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher" android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <activity android:name=".HomeScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Kastenwagen" android:screenOrientation="portrait" />
+        <activity android:name=".ReisemobileBaureihe" android:screenOrientation="portrait"/>
+        <activity android:name=".CaravansBaureihe" android:screenOrientation="portrait"/>
+        <activity android:name=".Panoviewer" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="panoviewer"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".r_baureihen.siesta" android:screenOrientation="portrait"/>
+        <activity android:name=".r_baureihen.s_alkoven" android:screenOrientation="portrait"/>
+        <activity android:name=".r_baureihen.s_edition" android:screenOrientation="portrait"/>
+        <activity android:name=".r_baureihen.optima" android:screenOrientation="portrait"/>
+        <activity android:name=".r_baureihen.premium" android:screenOrientation="portrait"/>
+
+        <activity android:name=".c_baureihen.ontour" android:screenOrientation="portrait"/>
+        <activity android:name=".c_baureihen.deluxe" android:screenOrientation="portrait"/>
+        <activity android:name=".c_baureihen.excellent" android:screenOrientation="portrait"/>
+        <activity android:name=".c_baureihen.prestige" android:screenOrientation="portrait"/>
+        <activity android:name=".c_baureihen.c_premium" android:screenOrientation="portrait"/>
+        <activity android:name=".c_baureihen.landhaus" android:screenOrientation="portrait"/>
+
+        <activity android:name=".FindHobby" android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

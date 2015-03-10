@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Hobby360</string>
+    <string name="kastenwagen_title">Kastenwagen</string>
+    <string name="reisemobile_title">Reisemobile</string>
+    <string name="caravans_title">Caravans</string>
+
+    <string name="siesta_title">Siesta</string>
+    <string name="siestaalkoven_title">Siesta Alkoven</string>
+    <string name="siestaedition_title">Siesta Edition</string>
+    <string name="optima_title">Optima</string>
+    <string name="premium_title">Premium</string>
+
+    <string name="ontour_title">Ontour</string>
+    <string name="deluxe_title">De Luxe</string>
+    <string name="excellent_title">Excellent</string>
+    <string name="prestige_title">Prestige</string>
+    <string name="c_premium_title">Premium</string>
+    <string name="landhaus_title">Landhaus</string>
+
+    <string name="kastenwagen_teaser">Wählen Sie aus unserem reichhaltigen Angebot an Vantana Kastenwagen.</string>
+    <string name="reisemobile_teaser">Die vielseitigen Reisemobile für jeden Geldbeutel.</string>
+    <string name="caravans_teaser">Unsere Königsklasse, die Caravans in jeder Größe.</string>
+
+    //Navigationselemente
+    <string-array name="navigationselemente">
+        <item>Startseite</item>
+        <item>Händler</item>
+        <item>Impressum</item>
+    </string-array>
+
+    //FindHobby Strings
+    <string name="pin">Position speichern</string>
+    <string name="find">Mein Hobby finden</string>
+    <string name="clear">Zurücksetzen</string>
+</resources>

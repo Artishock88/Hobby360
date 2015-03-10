@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?android:actionBarSize">
+
+        <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/homescreen_linear">
+
+
+<!--SIESTA-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/siesta"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/rb_siesta"
+            android:background="@color/background_color"
+            android:minHeight="300dp"
+            android:scaleType="centerCrop"
+            android:layout_margin="0dp"
+            android:onClick="onSiestaClick" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|bottom"
+            android:focusableInTouchMode="false"
+            android:id="@+id/siesta_text_layout"
+            android:background="@color/secondary_alpha"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/siesta_title"
+                android:id="@+id/siesta_Text"
+                android:layout_gravity="left|bottom"
+                android:layout_marginLeft="5dp"
+                android:clickable="true"
+                android:textColor="@color/homescreen_text_color"
+                android:textSize="@dimen/abc_text_size_headline_material"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/siesta_teaser"
+                android:layout_gravity="left|bottom"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/homescreen_text_color"
+                android:clickable="true" />
+        </LinearLayout>
+
+    </RelativeLayout>
+<!--SIESTA ALKOVEN-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:minHeight="300dp"
+            android:id="@+id/siestaalkoven"
+            android:src="@drawable/rb_siestaalkoven"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/background_color"
+            android:scaleType="centerCrop"
+            android:layout_margin="0dp"
+            android:onClick="onSiestaAlkovenClick" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|bottom"
+            android:focusableInTouchMode="false"
+            android:id="@+id/siestaalkoven_text_layout"
+            android:background="@color/secondary_alpha"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/siestaalkoven_title"
+                android:id="@+id/siestaalkoven_text"
+                android:layout_gravity="left|bottom"
+                android:layout_marginLeft="5dp"
+                android:clickable="true"
+                android:textColor="@color/homescreen_text_color"
+                android:textSize="@dimen/abc_text_size_headline_material"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/siestaalkoven_teaser"
+                android:layout_gravity="left|bottom"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/homescreen_text_color"
+                android:clickable="true" />
+        </LinearLayout>
+    </RelativeLayout>
+<!--SIESTA EDITION-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:minHeight="300dp"
+            android:id="@+id/siestaedition"
+            android:src="@drawable/rb_siestaedition"
+            android:background="@color/background_color"
+            android:scaleType="centerCrop"
+            android:layout_margin="0dp"
+            android:onClick="onSiestaEditionClick" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|bottom"
+            android:id="@+id/siestaedition_text_layout"
+            android:background="@color/secondary_alpha"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/siestaedition_title"
+                android:id="@+id/siestaedition_Text"
+                android:layout_gravity="left|bottom"
+                android:layout_marginLeft="5dp"
+                android:clickable="true"
+                android:textColor="@color/homescreen_text_color"
+                android:textSize="@dimen/abc_text_size_headline_material"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/caravans_teaser"
+                android:layout_gravity="left|bottom"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/homescreen_text_color"
+                android:clickable="true" />
+
+        </LinearLayout>
+    </RelativeLayout>
+<!--OPTIMA-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:minHeight="300dp"
+            android:id="@+id/optima"
+            android:src="@drawable/rb_optima"
+            android:background="@color/background_color"
+            android:scaleType="centerCrop"
+            android:layout_margin="0dp"
+            android:onClick="onOptimaClick" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|bottom"
+            android:id="@+id/optima_text_layout"
+            android:background="@color/secondary_alpha"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/optima_title"
+                android:id="@+id/optima_Text"
+                android:layout_gravity="left|bottom"
+                android:layout_marginLeft="5dp"
+                android:clickable="true"
+                android:textColor="@color/homescreen_text_color"
+                android:textSize="@dimen/abc_text_size_headline_material"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/optima_teaser"
+                android:layout_gravity="left|bottom"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/homescreen_text_color"
+                android:clickable="true" />
+
+        </LinearLayout>
+    </RelativeLayout>
+<!--PREMIUM-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:minHeight="300dp"
+            android:id="@+id/premium"
+            android:src="@drawable/rb_premium"
+            android:background="@color/background_color"
+            android:scaleType="centerCrop"
+            android:layout_margin="0dp"
+            android:onClick="onPremiumClick" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|bottom"
+            android:id="@+id/premium_text_layout"
+            android:background="@color/secondary_alpha"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/premium_title"
+                android:id="@+id/premium_Text"
+                android:layout_gravity="left|bottom"
+                android:layout_marginLeft="5dp"
+                android:clickable="true"
+                android:textColor="@color/homescreen_text_color"
+                android:textSize="@dimen/abc_text_size_headline_material"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/premium_teaser"
+                android:layout_gravity="left|bottom"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/homescreen_text_color"
+                android:clickable="true" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
+</ScrollView>
+</RelativeLayout>
+</RelativeLayout>

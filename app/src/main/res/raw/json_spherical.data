@@ -1,0 +1,21 @@
+{
+    "urlBase": "res://raw",
+
+    "type": "spherical",
+
+    "inertia":
+    {
+        "enabled": true,
+        "interval": 1
+    },
+    "accelerometer":
+    {
+        "enabled": true,
+        "interval": 0.033,
+        "sensitivity": 10.0,
+        "leftRightEnabled": true,
+        "upDownEnabled": true
+    },
+    "sensorialRotation": true
+
+}

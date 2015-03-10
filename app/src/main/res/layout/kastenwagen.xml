@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?android:actionBarSize">
+
+<ScrollView
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/kastenwagen_layout">
+
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/K55"
+            android:background="#ffffffff"
+            android:layout_marginBottom="1dp"
+            android:elevation="2dp"
+            android:clickable="true">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/K55_Layout">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:id="@+id/K55_Image"
+                    android:clickable="false"
+                    android:src="@drawable/thumbnail_dummy"
+                    android:scaleType="fitStart"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vantana, K55"
+                    android:id="@+id/K55_title"
+                    android:textColor="@color/views_text_color"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/K55_Image"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informationstext kommt hier"
+                    android:id="@+id/K55_Text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_below="@+id/K55_title"
+                    android:layout_toEndOf="@+id/K55_Image"
+                    android:layout_marginTop="0dp" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/K60"
+            android:background="#ffffffff"
+            android:elevation="2dp"
+            android:layout_marginBottom="1dp"
+            android:clickable="true">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="left|top"
+                android:id="@+id/K60_Layout">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:id="@+id/K60_image"
+                    android:clickable="false"
+                    android:src="@drawable/thumbnail_dummy"
+                    android:scaleType="fitStart"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vantana, K60"
+                    android:id="@+id/K60_title"
+                    android:textColor="@color/views_text_color"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/K60_image"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informationstext kommt hier"
+                    android:id="@+id/K60_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_below="@+id/K60_title"
+                    android:layout_toEndOf="@+id/K60_image" />
+            </RelativeLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/K60T"
+            android:background="#ffffffff"
+            android:elevation="2dp"
+            android:layout_marginBottom="1dp"
+            android:clickable="true">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="left|top"
+                android:id="@+id/K60T_Layout">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:id="@+id/K60T_image"
+                    android:clickable="false"
+                    android:src="@drawable/thumbnail_dummy"
+                    android:scaleType="fitStart"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vantana, K60T"
+                    android:id="@+id/K60T_title"
+                    android:textColor="@color/views_text_color"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/K60T_image"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informationstext kommt hier"
+                    android:id="@+id/K60T_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_below="@+id/K60T_title"
+                    android:layout_toEndOf="@+id/K60T_image" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/K65"
+            android:background="#ffffffff"
+            android:layout_marginBottom="1dp"
+            android:elevation="2dp"
+            android:clickable="true">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="left|top"
+                android:id="@+id/K65_Layout">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:id="@+id/K65_image"
+                    android:clickable="false"
+                    android:src="@drawable/thumbnail_dummy"
+                    android:scaleType="fitStart"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vantana, K65"
+                    android:id="@+id/K65_title"
+                    android:textColor="@color/views_text_color"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/K65_image"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informationstext kommt hier"
+                    android:id="@+id/K65_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_below="@+id/K65_title"
+                    android:layout_toEndOf="@+id/K65_image" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/K65T"
+            android:background="#ffffffff"
+            android:layout_marginBottom="1dp"
+            android:elevation="2dp"
+            android:clickable="true">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="left|top"
+                android:id="@+id/K65T_Layout">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:id="@+id/K65T_image"
+                    android:clickable="false"
+                    android:src="@drawable/thumbnail_dummy"
+                    android:scaleType="fitStart"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informationstext kommt hier"
+                    android:id="@+id/K65T_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_below="@+id/K65T_title"
+                    android:layout_toEndOf="@+id/K65T_image" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vantana, K65T"
+                    android:id="@+id/K65T_title"
+                    android:textColor="@color/views_text_color"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/K65T_image"
+                    android:layout_marginTop="10dp" />
+            </RelativeLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>
+</RelativeLayout>
