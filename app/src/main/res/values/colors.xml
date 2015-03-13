@@ -9,6 +9,8 @@
     <item name="views_text_color" type="color">#2196f3</item>
     <item name="secondary_alpha" type="color">#820d47a1</item>
     <item name="signal_red" type="color">#f44336</item>
+    <item name="find_green" type="color">#4caf50</item>
+    <item name="inactive_grey" type="color">#9e9e9e</item>
 
 
 </resources>

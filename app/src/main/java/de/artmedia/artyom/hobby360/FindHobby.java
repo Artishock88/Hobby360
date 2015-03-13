@@ -125,7 +125,7 @@ public class FindHobby extends ActionBarActivity {
             //Marker nach dem Schließen wiederherstellen
             //gespeicherte Longitude abrufen
 
-
+            //test der Doubles
             latitudeDSaved = Double.parseDouble(chkDataString);
             longitudeDSaved = Double.parseDouble(chkDataLoSaved);
 
