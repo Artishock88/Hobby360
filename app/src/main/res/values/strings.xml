@@ -32,4 +32,7 @@
     <string name="pin">Standort speichern</string>
     <string name="find">Mein Hobby finden</string>
     <string name="clear">Zurücksetzen</string>
+
+    <string name="openDrawer">open</string>
+    <string name="closeDrawer">close</string>
 </resources>

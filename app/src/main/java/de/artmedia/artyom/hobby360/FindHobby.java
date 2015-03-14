@@ -7,7 +7,11 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -42,7 +46,7 @@ import static de.artmedia.artyom.hobby360.R.color.find_green;
  */
 public class FindHobby extends ActionBarActivity {
 
-    private Toolbar toolbar;
+
     private String GPSText;
     boolean gpsOn;
     boolean gpsSet;
@@ -57,6 +61,25 @@ public class FindHobby extends ActionBarActivity {
     private Double longitudeCurr;
     private Boolean restored = false;
 
+    //Menuitems und Icons definieren
+    String TITLES[] = {"Home", "Händler", "Hilfe", "Über"};
+    int ICONS[] = {R.drawable.ic_home_grey,R.drawable.ic_store_mall_directory_grey,R.drawable.ic_help_grey,R.drawable.ic_info_outline_grey};
+
+    //Titel und Teaser definieren (für programmatische Änderungen)
+    String TITLE = "Hobby 360";
+    String TEASER = "Ihr Zugang zur Welt von Hobby";
+    int IMAGE = R.drawable.h360_icon;
+
+    private Toolbar toolbar;
+
+    RecyclerView mRecyclerView;
+    RecyclerView.Adapter mAdapter;
+    RecyclerView.LayoutManager mLayoutManager;
+    DrawerLayout Drawer;
+
+    ActionBarDrawerToggle mDrawerToggle;
+
+
 
     public void  onCreate(Bundle savedInstanceState)
     {
@@ -66,6 +89,30 @@ public class FindHobby extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Setup des Slide-In-Menus
+        mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
+        mRecyclerView.setHasFixedSize(true);
+        mAdapter = new MyAdapter(TITLES,ICONS,TITLE,TEASER,IMAGE);
+        mRecyclerView.setAdapter(mAdapter);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        Drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
+        mDrawerToggle = new ActionBarDrawerToggle(this,Drawer,toolbar,R.string.openDrawer,R.string.closeDrawer){
+            @Override
+            public void onDrawerOpened(View drawerView){
+                super.onDrawerOpened(drawerView);
+            }
+            @Override
+            public void onDrawerClosed(View drawerView){
+                super.onDrawerClosed(drawerView);
+            }
+        };
+        Drawer.setDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
+
+
+        //Location Manager Iniziieren
         LocationManager myHobbyLoc = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         LocationListener myHobbyLocListener = new HobbyLocationListener();
         myHobbyLoc.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,myHobbyLocListener);
