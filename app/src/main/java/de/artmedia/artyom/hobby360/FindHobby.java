@@ -92,7 +92,7 @@ public class FindHobby extends ActionBarActivity {
         //Setup des Slide-In-Menus
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new MyAdapter(TITLES,ICONS,TITLE,TEASER,IMAGE);
+        mAdapter = new MyAdapter(TITLES,ICONS,TITLE,TEASER,IMAGE,this);
         mRecyclerView.setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);

@@ -1,6 +1,7 @@
 package de.artmedia.artyom.hobby360;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -49,7 +50,7 @@ public class Kastenwagen extends ActionBarActivity {
         //Setup des Slide-In-Menus
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new MyAdapter(TITLES,ICONS,TITLE,TEASER,IMAGE);
+        mAdapter = new MyAdapter(TITLES,ICONS,TITLE,TEASER,IMAGE, this);
         mRecyclerView.setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);

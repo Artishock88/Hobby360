@@ -1,6 +1,7 @@
 package de.artmedia.artyom.hobby360;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -34,6 +35,7 @@ public class CaravansBaureihe extends ActionBarActivity {
     String TEASER = "Ihr Zugang zur Welt von Hobby";
     int IMAGE = R.drawable.h360_icon;
 
+
     private Toolbar toolbar;
 
     RecyclerView mRecyclerView;
@@ -53,7 +55,7 @@ public class CaravansBaureihe extends ActionBarActivity {
         //Setup des Slide-In-Menus
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new MyAdapter(TITLES,ICONS,TITLE,TEASER,IMAGE);
+        mAdapter = new MyAdapter(TITLES,ICONS,TITLE,TEASER,IMAGE, this);
         mRecyclerView.setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
