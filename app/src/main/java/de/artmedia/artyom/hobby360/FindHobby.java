@@ -181,9 +181,6 @@ public class FindHobby extends ActionBarActivity {
             Log.d("werte",werte1);
             Log.d("werte2",werte2);
 
-            /*final ImageButton openMap = (ImageButton) findViewById(R.id.openMaps);
-            openMap.setVisibility(View.VISIBLE);*/
-
         }else{
 
             //deaktivieren des Zurücksetzen-Buttons
@@ -196,8 +193,6 @@ public class FindHobby extends ActionBarActivity {
             final Button set_find = (Button) findViewById(R.id.pin_find);
             set_find.setOnClickListener(onSet);
 
-            final ImageButton openMap = (ImageButton) findViewById(R.id.openMaps);
-            openMap.setVisibility(View.GONE);
         }
 
         //Google Map initialisieren
@@ -369,9 +364,6 @@ public class FindHobby extends ActionBarActivity {
                         //Funktion des Buttons auf "Suchen" setzen
                         set_find.setOnClickListener(onFind);
 
-                        //Google Maps Button aktivieren
-                        /*final ImageButton openMap = (ImageButton) findViewById(R.id.openMaps);
-                        openMap.setVisibility(View.VISIBLE);*/
 
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -395,7 +387,7 @@ public class FindHobby extends ActionBarActivity {
 
 
             } else {
-                Toast.makeText(getApplicationContext(), "wartet auf Satelitten", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "wartet auf Satelliten", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -404,21 +396,24 @@ public class FindHobby extends ActionBarActivity {
     View.OnClickListener onFind = new View.OnClickListener()
     {
         public void onClick(View v){
-            Toast.makeText(getApplicationContext(),"Pfadzeichnung wird implementiert",Toast.LENGTH_SHORT).show();
 
-            MarkerOptions markerCurr = new MarkerOptions().position(new LatLng(latitudeCurr,longitudeCurr)).title("Aktueller Standort");
+           /*MarkerOptions markerCurr = new MarkerOptions().position(new LatLng(latitudeCurr,longitudeCurr)).title("Aktueller Standort");
             markerCurr.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-            googleMap.addMarker(markerCurr);
+            googleMap.addMarker(markerCurr);*/
+
+            final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?" + "&daddr=" + latitudeDSaved + "," + longitudeDSaved));
+            intent.setClassName("com.google.android.apps.maps","com.google.android.maps.MapsActivity");
+            startActivity(intent);
         }
     };
 
     //Google Maps für Navigation öffnen
-    public void onOpenMaps (View view)
+   /* public void onOpenMaps (View view)
     {
         final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?" + "saddr=" + latitudeCurr + "," + longitudeCurr + "&daddr=" + latitudeDSaved + "," + longitudeDSaved));
         intent.setClassName("com.google.android.apps.maps","com.google.android.maps.MapsActivity");
         startActivity(intent);
-    }
+    }*/
 
     public void onClearPos (View view)
     {
@@ -436,10 +431,6 @@ public class FindHobby extends ActionBarActivity {
             clear_find.setEnabled(false);
             clear_find.setBackgroundColor(getResources().getColor(R.color.inactive_grey));
             gpsSet = false;
-
-            //Verstecken des GoogleMaps Buttons
-            final ImageButton openMap = (ImageButton) findViewById(R.id.openMaps);
-            openMap.setVisibility(View.GONE);
 
             //lokale Daten überschreiben
             String clear = "0";
