@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import de.artmedia.artyom.hobby360.FindHobby;
 import de.artmedia.artyom.hobby360.MyAdapter;
+import de.artmedia.artyom.hobby360.MyModelAdapter;
 import de.artmedia.artyom.hobby360.R;
 
 /**
@@ -35,8 +36,16 @@ public class siesta extends ActionBarActivity {
     String TEASER = "Ihr Zugang zur Welt von Hobby";
     int IMAGE = R.drawable.h360_icon;
 
+    //Thumbnail für die Liste definieren
+    int THUMB[] = {R.drawable.thumb_t70_hge,R.drawable.thumbnail_dummy};
+
+    //Modellnamen und Beschreibungen definieren;
+    String MODEL[] = {"T70 HGE", "Testmodellname"};
+    String mINFO[] = {"zukünftiger Text", "Testtext für die einzelnen Modelle"};
+
     private Toolbar toolbar;
 
+    //RecyclerView für das Slide-In-Menü
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
@@ -44,10 +53,16 @@ public class siesta extends ActionBarActivity {
 
     ActionBarDrawerToggle mDrawerToggle;
 
+    //RecyclerView für die Modelliste
+    RecyclerView mModelView;
+    RecyclerView.Adapter mModelAdapter;
+    RecyclerView.LayoutManager mModelLayoutManager;
+
+
     public void  onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.modellview);
+        setContentView(R.layout.modellview_recycler);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -74,6 +89,14 @@ public class siesta extends ActionBarActivity {
         Drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
+        //Setup der Modelliste
+        mModelView = (RecyclerView) findViewById(R.id.modell_list);
+        mModelView.setHasFixedSize(true);
+        mModelAdapter = new MyModelAdapter(THUMB,MODEL,mINFO,this);
+        mModelView.setAdapter(mModelAdapter);
+        mModelLayoutManager = new LinearLayoutManager(this);
+        mModelView.setLayoutManager(mModelLayoutManager);
+        /*
         //Fill the top infobox
         TextView titel = (TextView) findViewById(R.id.modell_title);
         titel.setText("T70 HGE");
@@ -82,7 +105,7 @@ public class siesta extends ActionBarActivity {
         beschreibung.setText("Informationstext kommt hier");
 
         ImageView thumbnail = (ImageView) findViewById(R.id.modell_image);
-        thumbnail.setImageResource(R.drawable.thumbnail_dummy);
+        thumbnail.setImageResource(R.drawable.thumbnail_dummy);*/
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

@@ -13,37 +13,38 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="left|top"
-        android:id="@+id/relativeLayout">
+        android:id="@+id/modell_list_layout">
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/imageView"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/modell_list_thumbnail"
             android:clickable="false"
             android:src="@drawable/thumbnail_dummy"
-            android:scaleType="fitStart"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="0dp" />
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Informationstext kommt hier"
-            android:id="@+id/textView"
+            android:id="@+id/modell_list_info"
+            android:textColor="@color/views_text_color"
             android:layout_marginLeft="10dp"
-            android:layout_below="@+id/textView2"
-            android:layout_toEndOf="@+id/imageView" />
+            android:layout_below="@+id/modell_list_title"
+            android:layout_toEndOf="@+id/modell_list_thumbnail" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bezeichnung hier"
-            android:id="@+id/textView2"
+            android:id="@+id/modell_list_title"
             android:textColor="@color/views_text_color"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center_horizontal|top"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/imageView"
+            android:layout_toEndOf="@+id/modell_list_thumbnail"
             android:layout_marginTop="10dp" />
     </RelativeLayout>
 </FrameLayout>

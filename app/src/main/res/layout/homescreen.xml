@@ -40,7 +40,7 @@
                         android:cropToPadding="false"
                         android:minHeight="300dp"
                         android:scaleType="centerCrop"
-                        android:layout_margin="1dp"
+                        android:layout_margin="0dp"
                         android:onClick="onKastenwagenClick" />
 
                     <LinearLayout

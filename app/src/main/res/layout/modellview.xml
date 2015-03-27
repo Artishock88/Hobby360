@@ -16,7 +16,7 @@
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
-        <ScrollView
+    <ScrollView
             android:layout_width="match_parent"
             android:layout_below="@+id/toolbar"
             android:layout_alignParentStart="true"
@@ -124,6 +124,15 @@
 
         </LinearLayout>
 </ScrollView>
+<!--        <android.support.v7.widget.RecyclerView
+            android:id="@+id/modell_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="#ffffff"
+            android:scrollbars="vertical">
+
+        </android.support.v7.widget.RecyclerView>-->
 </RelativeLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/RecyclerView"
