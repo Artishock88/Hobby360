@@ -4,14 +4,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Surface;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.panoramagl.PLImage;
 import com.panoramagl.PLSpherical2Panorama;
 import com.panoramagl.PLView;
 import com.panoramagl.loaders.PLJSONLoader;
 import com.panoramagl.utils.PLUtils;
+
+import java.util.List;
 
 
 /**
