@@ -20,6 +20,7 @@ public class MyModelAdapter extends RecyclerView.Adapter<MyModelAdapter.ViewHold
     private final Context context;
 
     private int mThumbs[];
+    public static int mPano[];
     private String  mModels[];
     private String mInfos[];
 
@@ -49,26 +50,23 @@ public class MyModelAdapter extends RecyclerView.Adapter<MyModelAdapter.ViewHold
 
         @Override
         public void onClick(View v) {
+
             int usedPos = getPosition();
-            switch (usedPos)
-            {
-                case (0):
-                    Intent i0 = new Intent(contxt, Panoviewer.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("pano",R.raw.spherical_pano);
-                    i0.putExtras(bundle);
-                    contxt.startActivity(i0);
-                    break;
-                case (1):
-                    Toast.makeText(contxt,"Testklick auf zweites Item",Toast.LENGTH_SHORT).show();
-                    break;
-            }
+
+            Intent i = new Intent(contxt, Panoviewer.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("pano",mPano[usedPos]);
+            i.putExtras(bundle);
+            contxt.startActivity(i);
+
+
         }
     }
 
-    public MyModelAdapter(int THUMB[], String MODEL[], String mINFO[], Context passedContext)
+    public MyModelAdapter(int THUMB[], int[] PANO, String MODEL[], String[] mINFO, Context passedContext)
     {
         mThumbs = THUMB;
+        mPano = PANO;
         mModels = MODEL;
         mInfos = mINFO;
         this.context = passedContext;

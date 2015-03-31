@@ -37,11 +37,14 @@ public class siesta extends ActionBarActivity {
     int IMAGE = R.drawable.h360_icon;
 
     //Thumbnail für die Liste definieren
-    int THUMB[] = {R.drawable.thumb_t70_hge,R.drawable.thumbnail_dummy};
+    int THUMB[] = {R.drawable.thumb_t70_hge,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy};
+
+    //Entsprechende Panoramen definieren
+    int PANO[] = {R.raw.spherical_pano,R.raw.spherical_pano_test,R.raw.spherical_pano,R.raw.spherical_pano_test};
 
     //Modellnamen und Beschreibungen definieren;
-    String MODEL[] = {"T70 HGE", "Testmodellname"};
-    String mINFO[] = {"zukünftiger Text", "Testtext für die einzelnen Modelle"};
+    String MODEL[] = {"T70 HGE", "Testmodellname", "Testmodell_2", "Testmodell_3"};
+    String mINFO[] = {"zukünftiger Text", "Testtext für die einzelnen Modelle","abc","def"};
 
     private Toolbar toolbar;
 
@@ -92,7 +95,7 @@ public class siesta extends ActionBarActivity {
         //Setup der Modelliste
         mModelView = (RecyclerView) findViewById(R.id.modell_list);
         mModelView.setHasFixedSize(true);
-        mModelAdapter = new MyModelAdapter(THUMB,MODEL,mINFO,this);
+        mModelAdapter = new MyModelAdapter(THUMB,PANO,MODEL,mINFO,this);
         mModelView.setAdapter(mModelAdapter);
         mModelLayoutManager = new LinearLayoutManager(this);
         mModelView.setLayoutManager(mModelLayoutManager);
