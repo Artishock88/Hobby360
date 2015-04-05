@@ -70,6 +70,8 @@ public class siesta extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        setTitle("Siesta");
+
         //Setup des Slide-In-Menus
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);

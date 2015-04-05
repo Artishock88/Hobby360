@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import de.artmedia.artyom.hobby360.FindHobby;
 import de.artmedia.artyom.hobby360.MyAdapter;
+import de.artmedia.artyom.hobby360.MyModelAdapter;
 import de.artmedia.artyom.hobby360.R;
 
 /**
@@ -35,8 +36,20 @@ public class premium extends ActionBarActivity {
     String TEASER = "Ihr Zugang zur Welt von Hobby";
     int IMAGE = R.drawable.h360_icon;
 
+    //Thumbnail für die Liste definieren
+    int THUMB[] = {R.drawable.thumb_t70_hge,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy};
+
+    //Entsprechende Panoramen definieren
+    int PANO[] = {R.raw.k55_pano,R.raw.spherical_pano_test,R.raw.spherical_pano,R.raw.spherical_pano_test};
+
+    //Modellnamen und Beschreibungen definieren;
+    String MODEL[] = {"70 HQ", "Testmodellname", "Testmodell_2", "Testmodell_3"};
+    String mINFO[] = {"zukünftiger Text", "Testtext für die einzelnen Modelle","abc","def"};
+
+
     private Toolbar toolbar;
 
+    //Recyclerview fürdasSlide-In-Menu
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
@@ -44,13 +57,20 @@ public class premium extends ActionBarActivity {
 
     ActionBarDrawerToggle mDrawerToggle;
 
+    //RecyclerView für die Modelliste
+    RecyclerView mModelView;
+    RecyclerView.Adapter mModelAdapter;
+    RecyclerView.LayoutManager mModelLayoutManager;
+
     public void  onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.modellview);
+        setContentView(R.layout.modellview_recycler);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        setTitle("Premium");
 
         //Setup des Slide-In-Menus
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
@@ -74,15 +94,13 @@ public class premium extends ActionBarActivity {
         Drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-        //Fill the top Infobox
-        TextView titel = (TextView) findViewById(R.id.modell_title);
-        titel.setText("70 HQ");
-
-        TextView beschreibung = (TextView) findViewById(R.id.modell_text);
-        beschreibung.setText("Informationstext kommt hier");
-
-        ImageView thumbnail = (ImageView) findViewById(R.id.modell_image);
-        thumbnail.setImageResource(R.drawable.thumbnail_dummy);
+        //Setup der Modelliste
+        mModelView = (RecyclerView) findViewById(R.id.modell_list);
+        mModelView.setHasFixedSize(true);
+        mModelAdapter = new MyModelAdapter(THUMB,PANO,MODEL,mINFO,this);
+        mModelView.setAdapter(mModelAdapter);
+        mModelLayoutManager = new LinearLayoutManager(this);
+        mModelView.setLayoutManager(mModelLayoutManager);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

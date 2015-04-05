@@ -42,6 +42,8 @@ public class hilfe extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        setTitle("Hilfe");
+
         //Setup des Slide-In-Menus
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);

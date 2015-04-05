@@ -52,6 +52,9 @@ public class ReisemobileBaureihe extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        setTitle("Baureihe wählen");
+
+
         //Setup des Slide-In-Menus
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);

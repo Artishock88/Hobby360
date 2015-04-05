@@ -30,8 +30,20 @@ public class Kastenwagen extends ActionBarActivity {
     String TEASER = "Ihr Zugang zur Welt von Hobby";
     int IMAGE = R.drawable.h360_icon;
 
+    //Thumbnail für die Liste definieren
+    int THUMB[] = {R.drawable.thumb_t70_hge,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy};
+
+    //Entsprechende Panoramen definieren
+    int PANO[] = {R.raw.k55_pano,R.raw.spherical_pano_test,R.raw.spherical_pano,R.raw.spherical_pano_test};
+
+    //Modellnamen und Beschreibungen definieren;
+    String MODEL[] = {"K55", "Testmodellname", "Testmodell_2", "Testmodell_3"};
+    String mINFO[] = {"zukünftiger Text", "Testtext für die einzelnen Modelle","abc","def"};
+
+
     private Toolbar toolbar;
 
+    //RecyclerView für das Slide-In-Menu
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
@@ -39,13 +51,22 @@ public class Kastenwagen extends ActionBarActivity {
 
     ActionBarDrawerToggle mDrawerToggle;
 
+    //RecyclerView für die Modelliste
+    RecyclerView mModelView;
+    RecyclerView.Adapter mModelAdapter;
+    RecyclerView.LayoutManager mModelLayoutManager;
+
     public void  onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.kastenwagen);
+        setContentView(R.layout.modellview_recycler);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        setTitle("Vantana");
+        //getActionBar().setHomeButtonEnabled(true);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Setup des Slide-In-Menus
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
@@ -68,6 +89,14 @@ public class Kastenwagen extends ActionBarActivity {
         };
         Drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
+
+        //Setup der Modelliste
+        mModelView = (RecyclerView) findViewById(R.id.modell_list);
+        mModelView.setHasFixedSize(true);
+        mModelAdapter = new MyModelAdapter(THUMB,PANO,MODEL,mINFO,this);
+        mModelView.setAdapter(mModelAdapter);
+        mModelLayoutManager = new LinearLayoutManager(this);
+        mModelView.setLayoutManager(mModelLayoutManager);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
