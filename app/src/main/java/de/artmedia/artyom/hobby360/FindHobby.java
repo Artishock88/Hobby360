@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,7 +80,8 @@ public class FindHobby extends ActionBarActivity {
 
     ActionBarDrawerToggle mDrawerToggle;
 
-
+    //Infobildschirm beim Ersten Aufruf
+    String firstLString ="";
 
     public void  onCreate(Bundle savedInstanceState)
     {
@@ -216,6 +218,34 @@ public class FindHobby extends ActionBarActivity {
 
         }catch (Exception e){
             e.printStackTrace();
+        }
+
+        //Checken, on die App bereits geöffnet wurde und entsprechend das Hilfefenster darstellen/verbergen
+        try {
+            FileInputStream firstL = openFileInput("loadcount_f.txt");
+            InputStreamReader chkCount = new InputStreamReader(firstL);
+
+            char[] firstLBuffer = new char[300];
+            int charReadChk;
+
+            while ((charReadChk = chkCount.read(firstLBuffer))>0)
+            {
+                String readstring = String.copyValueOf(firstLBuffer,0,charReadChk);
+                firstLString += readstring;
+
+            }
+            chkCount.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if(firstLString.length()>0)
+        {
+            RelativeLayout layout = (RelativeLayout)findViewById(R.id.howTo_2);
+            layout.setVisibility(View.GONE);
         }
     }
     //Karte erzeugen
@@ -416,6 +446,31 @@ public class FindHobby extends ActionBarActivity {
         intent.setClassName("com.google.android.apps.maps","com.google.android.maps.MapsActivity");
         startActivity(intent);
     }*/
+
+    public void onHowToWeiter (View view)
+    {
+
+        switch (view.getId())
+        {
+            case (R.id.howto_weiter):
+                RelativeLayout layout = (RelativeLayout)findViewById(R.id.howTo_2);
+                layout.setVisibility(View.GONE);
+                firstLString = "yes";
+
+                try {
+                    FileOutputStream writeCount = openFileOutput("loadcount_f.txt", MODE_PRIVATE);
+                    writeCount.write(firstLString.getBytes());
+                    writeCount.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                break;
+
+        }
+    }
 
     public void onClearPos (View view)
     {

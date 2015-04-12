@@ -80,7 +80,33 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/howTo_2"
+            android:elevation="4dp">
 
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/imageView2"
+                android:src="@drawable/howto_findhobby"
+                android:scaleType="centerCrop" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weiter"
+                android:id="@+id/howto_weiter"
+                android:onClick="onHowToWeiter"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:background="@color/main_color"
+                android:elevation="2dp" />
+        </RelativeLayout>
 
 
     </RelativeLayout>

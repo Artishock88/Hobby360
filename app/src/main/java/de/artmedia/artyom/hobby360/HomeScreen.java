@@ -5,7 +5,9 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -18,8 +20,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 
 /**
@@ -44,6 +52,11 @@ public class HomeScreen extends ActionBarActivity{
     DrawerLayout Drawer;
 
     ActionBarDrawerToggle mDrawerToggle;
+
+    //Infobildschirm beim Ersten Aufruf
+    int firstload_h;
+    String firstLString ="";
+
 
     public void  onCreate(Bundle savedInstanceState)
     {
@@ -76,7 +89,38 @@ public class HomeScreen extends ActionBarActivity{
         Drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
+        //Checken, on die App bereits geöffnet wurde und entsprechend das Hilfefenster darstellen/verbergen
+        try {
+            FileInputStream firstL = openFileInput("loadcount.txt");
+            InputStreamReader chkCount = new InputStreamReader(firstL);
+
+            char[] firstLBuffer = new char[300];
+            int charReadChk;
+
+            while ((charReadChk = chkCount.read(firstLBuffer))>0)
+            {
+                String readstring = String.copyValueOf(firstLBuffer,0,charReadChk);
+                firstLString += readstring;
+
+            }
+            chkCount.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if(firstLString.length()>0)
+        {
+            RelativeLayout layout = (RelativeLayout)findViewById(R.id.howTo_1);
+            layout.setVisibility(View.GONE);
+        }
+
     }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -99,6 +143,30 @@ public class HomeScreen extends ActionBarActivity{
         }
     }
 
+public void onHowToWeiter (View view)
+{
+
+    switch (view.getId())
+    {
+        case (R.id.howto_weiter):
+            RelativeLayout layout = (RelativeLayout)findViewById(R.id.howTo_1);
+            layout.setVisibility(View.GONE);
+            firstLString = "yes";
+
+            try {
+                FileOutputStream writeCount = openFileOutput("loadcount.txt", MODE_PRIVATE);
+                writeCount.write(firstLString.getBytes());
+                writeCount.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            break;
+
+    }
+}
 
 public void onKastenwagenClick (View view)
 {
