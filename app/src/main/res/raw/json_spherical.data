@@ -12,7 +12,7 @@
     {
         "enabled": true,
         "interval": 0.033,
-        "sensitivity": 10.0,
+        "sensitivity": 5.0,
         "leftRightEnabled": true,
         "upDownEnabled": true
     },
