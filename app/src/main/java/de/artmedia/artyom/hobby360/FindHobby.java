@@ -260,11 +260,6 @@ public class FindHobby extends ActionBarActivity {
         }
     }
 
-    protected void onResume(){
-        super.onResume();
-        initializeMap();
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

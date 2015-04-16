@@ -102,6 +102,11 @@ public class s_alkoven extends ActionBarActivity {
         mModelView.setLayoutManager(mModelLayoutManager);
 
     }
+    public void onPause()
+    {
+        super.onPause();
+        System.gc();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {

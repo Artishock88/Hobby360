@@ -102,6 +102,11 @@ public class premium extends ActionBarActivity {
         mModelLayoutManager = new LinearLayoutManager(this);
         mModelView.setLayoutManager(mModelLayoutManager);
     }
+    public void onPause()
+    {
+        super.onPause();
+        System.gc();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {

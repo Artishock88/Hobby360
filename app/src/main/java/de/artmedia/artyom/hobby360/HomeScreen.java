@@ -1,6 +1,7 @@
 package de.artmedia.artyom.hobby360;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -120,7 +121,6 @@ public class HomeScreen extends ActionBarActivity{
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -167,6 +167,7 @@ public void onHowToWeiter (View view)
 
     }
 }
+
 
 public void onKastenwagenClick (View view)
 {

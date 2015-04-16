@@ -76,6 +76,12 @@ public class CaravansBaureihe extends ActionBarActivity {
         Drawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
     }
+    public void onPause()
+    {
+        super.onPause();
+        System.gc();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {

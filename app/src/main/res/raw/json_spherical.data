@@ -10,12 +10,12 @@
     },
     "accelerometer":
     {
-        "enabled": true,
+        "enabled": false,
         "interval": 0.033,
         "sensitivity": 5.0,
-        "leftRightEnabled": true,
-        "upDownEnabled": true
+        "leftRightEnabled": false,
+        "upDownEnabled": false
     },
-    "sensorialRotation": true
+    "sensorialRotation": false
 
 }

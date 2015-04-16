@@ -112,6 +112,11 @@ public class siesta extends ActionBarActivity {
         ImageView thumbnail = (ImageView) findViewById(R.id.modell_image);
         thumbnail.setImageResource(R.drawable.thumbnail_dummy);*/
     }
+    public void onPause()
+    {
+        super.onPause();
+        System.gc();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
