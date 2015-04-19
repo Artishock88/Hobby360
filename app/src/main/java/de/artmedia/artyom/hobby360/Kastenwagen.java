@@ -34,7 +34,8 @@ public class Kastenwagen extends ActionBarActivity {
     int THUMB[] = {R.drawable.thumb_t70_hge,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy};
 
     //Entsprechende Panoramen definieren
-    int PANO[] = {R.raw.k55_pano,R.raw.spherical_pano_test,R.raw.spherical_pano,R.raw.spherical_pano_test};
+    //int PANO[] = {R.raw.k55_pano,R.raw.spherical_pano_test,R.raw.spherical_pano,R.raw.spherical_pano_test};
+    String PANO[] = {"res://raw/json_k55","res://raw/json_k55","res://raw/json_k55","res://raw/json_k55"};
 
     //Modellnamen und Beschreibungen definieren;
     String MODEL[] = {"K55", "Testmodellname", "Testmodell_2", "Testmodell_3"};

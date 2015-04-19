@@ -20,7 +20,8 @@ public class MyModelAdapter extends RecyclerView.Adapter<MyModelAdapter.ViewHold
     private final Context context;
 
     private int mThumbs[];
-    public static int mPano[];
+    //public static int mPano[];
+    private static String mPano[];
     private String  mModels[];
     private String mInfos[];
 
@@ -55,7 +56,8 @@ public class MyModelAdapter extends RecyclerView.Adapter<MyModelAdapter.ViewHold
 
             Intent i = new Intent(contxt, Panoviewer.class);
             Bundle bundle = new Bundle();
-            bundle.putInt("pano",mPano[usedPos]);
+            //bundle.putInt("pano",mPano[usedPos]);
+            bundle.putString("pano",mPano[usedPos]);
             i.putExtras(bundle);
             contxt.startActivity(i);
 
@@ -63,7 +65,7 @@ public class MyModelAdapter extends RecyclerView.Adapter<MyModelAdapter.ViewHold
         }
     }
 
-    public MyModelAdapter(int THUMB[], int[] PANO, String MODEL[], String[] mINFO, Context passedContext)
+    public MyModelAdapter(int THUMB[], String[] PANO, String MODEL[], String[] mINFO, Context passedContext)
     {
         mThumbs = THUMB;
         mPano = PANO;

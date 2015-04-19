@@ -40,7 +40,7 @@ public class c_premium extends ActionBarActivity {
     int THUMB[] = {R.drawable.thumb_t70_hge,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy};
 
     //Entsprechende Panoramen definieren
-    int PANO[] = {R.raw.k55_pano,R.raw.spherical_pano_test,R.raw.spherical_pano,R.raw.spherical_pano_test};
+    String PANO[] = {"res://raw/k55/json_k55","res://raw/k55/json_k55","res://raw/k55/json_k55","res://raw/k55/json_k55"};
 
     //Modellnamen und Beschreibungen definieren;
     String MODEL[] = {"660 WFU", "Testmodellname", "Testmodell_2", "Testmodell_3"};

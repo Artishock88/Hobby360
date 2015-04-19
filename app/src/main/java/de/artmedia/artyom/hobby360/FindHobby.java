@@ -63,10 +63,12 @@ public class FindHobby extends ActionBarActivity {
     private Boolean restored = false;
 
     //Menuitems und Icons definieren
+    //Menu items and icons for the Slide-In-Menu
     String TITLES[] = {"Home", "Händler", "Hilfe", "Über"};
     int ICONS[] = {R.drawable.ic_home_grey,R.drawable.ic_store_mall_directory_grey,R.drawable.ic_help_grey,R.drawable.ic_info_outline_grey};
 
     //Titel und Teaser definieren (für programmatische Änderungen)
+    //Title, icon and teaser for the Slide-In-Menu header
     String TITLE = "Hobby 360";
     String TEASER = "Ihr Zugang zur Welt von Hobby";
     int IMAGE = R.drawable.h360_icon;
@@ -81,6 +83,7 @@ public class FindHobby extends ActionBarActivity {
     ActionBarDrawerToggle mDrawerToggle;
 
     //Infobildschirm beim Ersten Aufruf
+    //[Prototype] Infoscreen if opened the first time
     String firstLString ="";
 
     public void  onCreate(Bundle savedInstanceState)
@@ -94,6 +97,7 @@ public class FindHobby extends ActionBarActivity {
         setTitle("Meinen Hobby finden");
 
         //Setup des Slide-In-Menus
+        //Setup of the Slide-In-Menu and its Adapter
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
         mAdapter = new MyAdapter(TITLES,ICONS,TITLE,TEASER,IMAGE,this);
@@ -117,6 +121,7 @@ public class FindHobby extends ActionBarActivity {
 
 
         //Location Manager Iniziieren
+        //Instantiate the location manager for Google Maps
         LocationManager myHobbyLoc = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         LocationListener myHobbyLocListener = new HobbyLocationListener();
         myHobbyLoc.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,myHobbyLocListener);
@@ -125,11 +130,12 @@ public class FindHobby extends ActionBarActivity {
 
 
         //checken, ob die Position bereits gespeichert wurde
+        //check, if a location is already being saved on the device
         try {
             FileInputStream chkData = openFileInput("latitude.txt");
             InputStreamReader chkDataReader = new InputStreamReader(chkData);
 
-            char[] chkDataBuffer = new char[300];
+            char[] chkDataBuffer = new char[50];
             int charReadChk;
             while ((charReadChk = chkDataReader.read(chkDataBuffer))>0)
             {
@@ -142,7 +148,7 @@ public class FindHobby extends ActionBarActivity {
             FileInputStream chkDataLo = openFileInput("longitude.txt");
             InputStreamReader chkDataReaderLo = new InputStreamReader(chkDataLo);
 
-            char[] chkDataBufferLo = new char[300];
+            char[] chkDataBufferLo = new char[50];
             int charReadChkLo;
             while ((charReadChkLo = chkDataReaderLo.read(chkDataBufferLo))>0)
             {
@@ -163,7 +169,10 @@ public class FindHobby extends ActionBarActivity {
             Toast.makeText(getApplicationContext(),"gespeicherte Position wurde ausgelesen",Toast.LENGTH_SHORT).show();
 
             //Aussehen der Buttons anpassen
+            //Change button appearance if saved location is available
+
             //Button verändern
+            //Change button
             final Button set_find = (Button) findViewById(R.id.pin_find);
 
             set_find.setBackgroundColor(getResources().getColor(R.color.find_green));
@@ -171,11 +180,13 @@ public class FindHobby extends ActionBarActivity {
             gpsSet = true;
 
             //Funktion des Buttons auf "Suchen" setzen
+            //Set button function to "search"
             set_find.setOnClickListener(onFind);
 
             //Marker nach dem Schließen wiederherstellen
             //gespeicherte Longitude abrufen
 
+            /*
             //test der Doubles
             latitudeDSaved = Double.parseDouble(chkDataString);
             longitudeDSaved = Double.parseDouble(chkDataLoSaved);
@@ -183,23 +194,26 @@ public class FindHobby extends ActionBarActivity {
             String werte1 = Double.toString(latitudeDSaved);
             String werte2 = Double.toString(longitudeDSaved);
             Log.d("werte",werte1);
-            Log.d("werte2",werte2);
+            Log.d("werte2",werte2);*/
 
         }else{
 
             //deaktivieren des Zurücksetzen-Buttons
+            //deactivate clear-button if there is no location saved
             final Button clear_find = (Button) findViewById(R.id.clear_pos);
             clear_find.setEnabled(false);
             clear_find.setBackgroundColor(getResources().getColor(R.color.inactive_grey));
             gpsSet = false;
 
             //Funktion des Buttons auf "Speichern" setzen
+            //Set button function to "save"
             final Button set_find = (Button) findViewById(R.id.pin_find);
             set_find.setOnClickListener(onSet);
 
         }
 
         //Google Map initialisieren
+        //Initialize Google Map service
         try{
             initializeMap();
             if(latitudeDSaved!=null && longitudeDSaved!=null){
@@ -220,12 +234,13 @@ public class FindHobby extends ActionBarActivity {
             e.printStackTrace();
         }
 
-        //Checken, on die App bereits geöffnet wurde und entsprechend das Hilfefenster darstellen/verbergen
+        //Checken, ob die App bereits geöffnet wurde und entsprechend das Hilfefenster darstellen/verbergen
+        //Check for the "Firstload" and display the "Help"-overlay if it's true
         try {
             FileInputStream firstL = openFileInput("loadcount_f.txt");
             InputStreamReader chkCount = new InputStreamReader(firstL);
 
-            char[] firstLBuffer = new char[300];
+            char[] firstLBuffer = new char[10];
             int charReadChk;
 
             while ((charReadChk = chkCount.read(firstLBuffer))>0)
@@ -248,7 +263,9 @@ public class FindHobby extends ActionBarActivity {
             layout.setVisibility(View.GONE);
         }
     }
+
     //Karte erzeugen
+    //Display Google Map
     private void initializeMap() {
         if(googleMap==null){
             googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map_show)).getMap();
@@ -265,11 +282,13 @@ public class FindHobby extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu)
     {
         //Hinzufügen der Elemente zur Actionbar
+        //Actionbar elements
         getMenuInflater().inflate(R.menu.options_menu, menu);
         return true;
     }
 
     //einzelne Menüelemente aufrufen
+    //Onclick for Actionbar elements
     public boolean onOptionsItemSelected(MenuItem item)
     {
 
@@ -283,6 +302,8 @@ public class FindHobby extends ActionBarActivity {
     }
 
 
+    //Veränderungen des Standorts tracken
+    //Track location changes and write them to variables.
     public class HobbyLocationListener implements LocationListener
     {
 
@@ -321,6 +342,7 @@ public class FindHobby extends ActionBarActivity {
     }
 
     //Standort speichern
+    //Save current location
     View.OnClickListener onSet = new View.OnClickListener()
     {
 
@@ -330,18 +352,21 @@ public class FindHobby extends ActionBarActivity {
                 if (gpsOn == true) {
 
                     //Button verändern
+                    //change button to "search"
                     final Button set_find = (Button) findViewById(R.id.pin_find);
 
                     set_find.setBackgroundColor(getResources().getColor(R.color.find_green));
                     set_find.setText(getResources().getString(R.string.find));
 
                     //Zurücksetzen-Button aktivieren
+                    //activate "clear"-button
                     final Button clear_find = (Button) findViewById(R.id.clear_pos);
                     clear_find.setEnabled(true);
                     clear_find.setBackgroundColor(getResources().getColor(R.color.signal_red));
                     gpsSet = true;
 
                     //Position lokal speichern
+                    //save location data on device
                     try {
                         FileOutputStream fosLa = openFileOutput("latitude.txt", Context.MODE_PRIVATE);
                         fosLa.write(latitude.getBytes());
@@ -358,11 +383,12 @@ public class FindHobby extends ActionBarActivity {
                     }
 
                     //Lokale Daten auslesen
+                    //read saved data
                     try {
                         FileInputStream fisLa = openFileInput("latitude.txt");
                         InputStreamReader inputReadLa = new InputStreamReader(fisLa);
 
-                        char[] inputBufferLa = new char[300];
+                        char[] inputBufferLa = new char[50];
                         String sLa = "";
                         int charReadLa;
 
@@ -375,7 +401,7 @@ public class FindHobby extends ActionBarActivity {
                         FileInputStream fisLo = openFileInput("longitude.txt");
                         InputStreamReader inputReadLo = new InputStreamReader(fisLo);
 
-                        char[] inputBufferLo = new char[300];
+                        char[] inputBufferLo = new char[50];
                         String sLo = "";
                         int charReadLo;
 
@@ -389,6 +415,7 @@ public class FindHobby extends ActionBarActivity {
                         Toast.makeText(getApplicationContext(), "Position wurde gespeichert:\n" + sLa + "\n" + sLo, Toast.LENGTH_SHORT).show();
 
                         //Funktion des Buttons auf "Suchen" setzen
+                        //set Button-listener to "search"
                         set_find.setOnClickListener(onFind);
 
 
@@ -403,6 +430,7 @@ public class FindHobby extends ActionBarActivity {
                 }
 
                 //Gespeicherten Marker setzen
+                //display saved marker on the map
                 Double latitudeD = Double.parseDouble(latitude);
                 Double longitudeD = Double.parseDouble(longitude);
                 MarkerOptions marker = new MarkerOptions().position(new LatLng(latitudeD,longitudeD)).title("Gespeicherter Standort");
@@ -420,11 +448,13 @@ public class FindHobby extends ActionBarActivity {
     };
 
     //Navigation zum gesetzten Zielpunkt
+    //Open Google Maps app for navigation to saved location
     View.OnClickListener onFind = new View.OnClickListener()
     {
         public void onClick(View v){
 
-           /*MarkerOptions markerCurr = new MarkerOptions().position(new LatLng(latitudeCurr,longitudeCurr)).title("Aktueller Standort");
+           /*[Prototyping stage tests]
+           MarkerOptions markerCurr = new MarkerOptions().position(new LatLng(latitudeCurr,longitudeCurr)).title("Aktueller Standort");
             markerCurr.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
             googleMap.addMarker(markerCurr);*/
 
@@ -434,7 +464,8 @@ public class FindHobby extends ActionBarActivity {
         }
     };
 
-    //Google Maps für Navigation öffnen
+    //[Prototyping stage tests]
+    // Google Maps für Navigation öffnen
    /* public void onOpenMaps (View view)
     {
         final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?" + "saddr=" + latitudeCurr + "," + longitudeCurr + "&daddr=" + latitudeDSaved + "," + longitudeDSaved));
@@ -442,6 +473,7 @@ public class FindHobby extends ActionBarActivity {
         startActivity(intent);
     }*/
 
+    //[Prototype] Firstload Help-Screen
     public void onHowToWeiter (View view)
     {
 
@@ -467,11 +499,14 @@ public class FindHobby extends ActionBarActivity {
         }
     }
 
+    //Wenn Standort zurückgesetzt wurde
+    //Behaviour if location has been cleared
     public void onClearPos (View view)
     {
         if (gpsSet == true) {
 
             //Button zurücksetzen
+            //set "Search" button to "save"
             final Button set_find = (Button) findViewById(R.id.pin_find);
 
             set_find.setBackgroundColor(getResources().getColor(R.color.main_color));
@@ -479,12 +514,14 @@ public class FindHobby extends ActionBarActivity {
             set_find.setOnClickListener(onSet);
 
             //deaktivieren des Zurücksetzen-Buttons
+            //deactivate "clear" button
             final Button clear_find = (Button) findViewById(R.id.clear_pos);
             clear_find.setEnabled(false);
             clear_find.setBackgroundColor(getResources().getColor(R.color.inactive_grey));
             gpsSet = false;
 
             //lokale Daten überschreiben
+            //change saved locations to "0"
             String clear = "0";
 
             try {
@@ -503,11 +540,12 @@ public class FindHobby extends ActionBarActivity {
             }
 
             //Kontrollieren, ob die Daten überschrieben wurden
+            //[Prototyping stage] check if the data has been changed
             try {
                 FileInputStream fisLa = openFileInput("latitude.txt");
                 InputStreamReader inputReadLa = new InputStreamReader(fisLa);
 
-                char[] inputBufferLa = new char[300];
+                char[] inputBufferLa = new char[50];
                 String sLa = "";
                 int charReadLa;
 
@@ -520,7 +558,7 @@ public class FindHobby extends ActionBarActivity {
                 FileInputStream fisLo = openFileInput("longitude.txt");
                 InputStreamReader inputReadLo = new InputStreamReader(fisLo);
 
-                char[] inputBufferLo = new char[300];
+                char[] inputBufferLo = new char[50];
                 String sLo = "";
                 int charReadLo;
 
@@ -531,6 +569,7 @@ public class FindHobby extends ActionBarActivity {
                 inputReadLo.close();
 
                 //Marker entfernen
+                //clear Google Map Marker
                 googleMap.clear();
 
                 Toast.makeText(this,"Position wurde zurückgesetzt:\n" + sLa + "\n" + sLo, Toast.LENGTH_LONG).show();

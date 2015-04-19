@@ -23,6 +23,7 @@ import com.panoramagl.PLIPanorama;
 import com.panoramagl.PLImage;
 import com.panoramagl.PLSpherical2Panorama;
 import com.panoramagl.PLView;
+import com.panoramagl.loaders.PLILoader;
 import com.panoramagl.loaders.PLJSONLoader;
 import com.panoramagl.transitions.PLTransitionBlend;
 import com.panoramagl.utils.PLUtils;
@@ -35,8 +36,10 @@ import java.util.List;
  */
     public class Panoviewer extends PLView
     {
-        int pano;
-        PLSpherical2Panorama panorama = new PLSpherical2Panorama();
+        //int pano;
+        String pano;
+        //PLSpherical2Panorama panorama = new PLSpherical2Panorama();
+        PLILoader panorama = null;
 
         public void onCreate (Bundle savedInstanceState)
         {
@@ -77,24 +80,23 @@ import java.util.List;
             ViewGroup mainView = (ViewGroup)this.getLayoutInflater().inflate(R.layout.panoviewer, null);
             mainView.addView(contentView,0);
 
-            this.loadPanorama();
+            this.loadPanoramaFromJson();
 
             return super.onContentViewCreated(mainView);
         }
 
-        @SuppressWarnings("unused")
-        private void loadPanorama()
+        //@SuppressWarnings("unused")
+        private void loadPanoramaFromJson()
         {
             try
             {
                 Context context = this.getApplicationContext();
-                this.load(new PLJSONLoader("res://raw/json_spherical"));
-                pano = getIntent().getExtras().getInt("pano");
+                pano = getIntent().getExtras().getString("pano");
+                //this.load(new PLJSONLoader(pano));
 
-                panorama = null;
-                this.setLocked(true);
+                Toast.makeText(this.getApplicationContext(), pano, Toast.LENGTH_SHORT).show();
 
-                panorama = new PLSpherical2Panorama();
+                /*panorama = new PLSpherical2Panorama();
                 panorama.setImage(new PLImage(PLUtils.getBitmap(context, pano), false));
 
                 if(panorama!=null)
@@ -103,7 +105,12 @@ import java.util.List;
                     this.reset();
                     this.setPanorama(panorama);
                 }else {Toast.makeText(this.getApplicationContext(), "no pano", Toast.LENGTH_SHORT).show();}
-                this.setLocked(false);
+                this.setLocked(false);*/
+                panorama = new PLJSONLoader("res://raw/json_k55");
+                if(panorama!=null)
+                    this.load(panorama, true, new PLTransitionBlend(2.0f));
+
+
 
             }
             catch (Throwable e)
