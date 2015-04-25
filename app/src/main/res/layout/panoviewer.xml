@@ -36,18 +36,8 @@
         android:layout_alignParentEnd="true"
         android:background="@drawable/pano_rotation_2d"
         android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp" />
-
-    <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/pano_rotation_3d"
-        android:layout_above="@+id/pano_rotation"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/pano_rotation"
-        android:elevation="2dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:onClick="on3dActive" />
+        android:nestedScrollingEnabled="false"
+        android:visibility="gone" />
 
 </RelativeLayout>
