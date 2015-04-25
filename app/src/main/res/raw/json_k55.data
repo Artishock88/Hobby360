@@ -22,7 +22,7 @@
         "leftRightEnabled": false,
         "upDownEnabled": false
     },
-    "sensorialRotation": true,
+    "sensorialRotation": false,
     "images":
     {
         "preload": true,
