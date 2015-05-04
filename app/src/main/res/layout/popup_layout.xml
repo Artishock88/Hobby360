@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:clickable="false"
+    android:elevation="4dp"
+    android:id="@+id/popup_wrapper">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:layout_margin="20dp"
+        android:id="@+id/popup_layout">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SCHLIESSEN"
+            android:id="@+id/popup_weiter"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/main_color"
+            android:elevation="6dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vantana K55"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/menu_text"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/popup_title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/popup_scroll"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_below="@+id/popup_title"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/popup_weiter">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/popup_basis"
+                android:paddingBottom="30dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/length"
+                    android:text="Gesamtlänge"
+                    android:textColor="@color/menu_text"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/length_value"
+                    android:text="5.413 mm"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_above="@+id/mass"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/length" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mass"
+                    android:text="Technisch zulässige Gesamtmasse"
+                    android:textColor="@color/menu_text"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_below="@+id/length"
+                    android:layout_alignStart="@+id/length"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mass_value"
+                    android:text="3.300 kg"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_above="@+id/width"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/mass" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/width"
+                    android:text="Gesamtbreite"
+                    android:textColor="@color/menu_text"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_below="@+id/mass"
+                    android:layout_alignStart="@+id/mass"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/width_value"
+                    android:text="2.050 mm"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_above="@+id/persons"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/width" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/persons"
+                    android:text="Personenanzahl im Fahrbetrieb"
+                    android:textColor="@color/menu_text"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_below="@+id/width"
+                    android:layout_alignStart="@+id/width"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/personas_value"
+                    android:text="4"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_above="@+id/sleep"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/persons" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sleep"
+                    android:text="Schlafplätze Erwachsene"
+                    android:textColor="@color/menu_text"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_below="@+id/persons"
+                    android:layout_alignStart="@+id/persons"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sleep_value"
+                    android:text="2"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignTop="@+id/sleep"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/sleep" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/price_value"
+                    android:text="ab 38.500,00 EUR"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/sleep_value"
+                    android:layout_marginTop="15dp"
+                    android:layout_alignParentEnd="true" />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Technische Daten"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/menu_text"
+                    android:id="@+id/popup_technische_daten"
+                    android:layout_below="@+id/price_value"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/modell"
+                    android:text="Modell"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/popup_technische_daten"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/modell_value"
+                    android:text="K55"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/modell"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/modell" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fiat_1"
+                    android:text="FIAT Ducato 2,0 l - 85 kW/115 PS"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/modell"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fiat_1_value"
+                    android:text="ja"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/fiat_1"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/fiat_1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fiat_2"
+                    android:text="FIAT Ducato 2,3 l - 96 kW/130 PS"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/fiat_1"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fiat_2_value"
+                    android:text="990,- EUR"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/fiat_2"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/fiat_2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fiat_3"
+                    android:text="FIAT Ducato 2,3 l - 109 kW/148 PS"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/fiat_2"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fiat_3_value"
+                    android:text="1.990,- EUR"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/fiat_3"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/fiat_3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fiat_4"
+                    android:text="FIAT Ducato 3,0 l - 130 kW/177 PS"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/fiat_3"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fiat_4_value"
+                    android:text="3.990,- EUR"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/fiat_4"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/fiat_4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chassis_1"
+                    android:text="Light Chassis 3,3 Tonnen"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/fiat_4"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chassis_1_value"
+                    android:text="ja"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/chassis_1"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/chassis_1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chassis_2"
+                    android:text="Light Chassis 3,5 Tonnen"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/chassis_1"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chassis_2_value"
+                    android:text="500,- EUR"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/chassis_2"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/chassis_2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/achsen"
+                    android:text="Anzahl der Achsen"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/chassis_2"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/achsen_value"
+                    android:text="2"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/achsen"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/achsen" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/antrieb"
+                    android:text="Frontantrieb"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/achsen"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/antrieb_value"
+                    android:text="ja"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/antrieb"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/antrieb" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radstand"
+                    android:text="Radstand"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/antrieb"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radstand_value"
+                    android:text="3.450 mm"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/radstand"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/radstand" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wheels"
+                    android:text="Reifengröße"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/radstand"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wheels_value"
+                    android:text="215/70 R 15 C"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/wheels"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/wheels" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wendekreis"
+                    android:text="Reifengröße"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/wheels"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wendekreis_value"
+                    android:text="12,81 m"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/wendekreis"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/wendekreis" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/height"
+                    android:text="Gesamthöhe / Innenstehhöhe"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/wendekreis"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/height_value"
+                    android:text="2.642 / 1.894 mm"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/height"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/height" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/empty_weight"
+                    android:text="Leergewicht"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/height"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/empty_weight_value"
+                    android:text="2.487 kg"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/empty_weight"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/empty_weight" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/driving_mass"
+                    android:text="Mass im fahrbereiten Zustand"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/empty_weight"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/driving_mass_value"
+                    android:text="2.598 kg"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/driving_mass"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/driving_mass" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/zuladung"
+                    android:text="Zuladung"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/driving_mass"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/zuladung_value"
+                    android:text="702 kg"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/zuladung"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/zuladung" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/anh_brems"
+                    android:text="Zulässige Anhägerlast, gebremst"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/zuladung"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/anhg_brems_value"
+                    android:text="2.000 kg"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/anh_brems"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/anh_brems" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dreipunktgurte"
+                    android:text="Dreipunktgurte"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/anh_brems"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dreipunktgurte_value"
+                    android:text="4"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/dreipunktgurte"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/dreipunktgurte" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sleeping_place"
+                    android:text="Anzahl der Schlafplätze / Notbett"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/dreipunktgurte"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sleeping_place_value"
+                    android:text="2/1"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/sleeping_place"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/sleeping_place" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/liege"
+                    android:text="Liegefläche, Mitte (Notbett/Gästebett, nicht in Verbindung mit Einzelsitzen) (Länge x Breite)"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/sleeping_place"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/liege_value"
+                    android:text="1.400 x 900 mm"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/liege"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/liege" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/liege_back"
+                    android:text="Liegefläche, Heck (Länge x Breite)"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/liege"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/liege_back_value"
+                    android:text="1.920 x 1.390 / 1.190 mm"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/liege_back"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/liege_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/kraftstoff"
+                    android:text="Krafststofftank Inhalt"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/liege_back"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/kraftstoff_value"
+                    android:text="90 Liter"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/kraftstoff"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/kraftstoff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/abwasser"
+                    android:text="Abwasserinhalt"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/kraftstoff"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/abwasser_value"
+                    android:text="90 Liter"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/abwasser"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/abwasser" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frischwasser"
+                    android:text="Abwasserinhalt"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/abwasser"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frischwasser_value"
+                    android:text="90 Liter"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/abwasser"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/frischwasser" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frischwasser_tank"
+                    android:text="Einbauort Frischwassertank"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/frischwasser"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frischwasser_tank_value"
+                    android:text="Heck rechts"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/frischwasser_tank"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/frischwasser_tank" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gasflasche"
+                    android:text="Platz für Gasflaschen"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/frischwasser_tank"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gasflasche_value"
+                    android:text="2 x 11 kg"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/gasflasche"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/gasflasche" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ladegeraet"
+                    android:text="Ladegerät"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/gasflasche"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ladegeraet_value"
+                    android:text="25 A"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/ladegeraet"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/ladegeraet" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/steckdose"
+                    android:text="Anzahl Steckdosen (12 V/230 V)"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_below="@id/ladegeraet"
+                    android:layout_marginTop="5dp"
+                    android:maxWidth="200dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/steckdose_value"
+                    android:text="1 / 4"
+                    android:textColor="@color/menu_text"
+                    android:textSize="16sp"
+                    android:layout_alignBottom="@id/steckdose"
+                    android:layout_alignParentEnd="true" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/inactive_grey"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@id/steckdose" />
+
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

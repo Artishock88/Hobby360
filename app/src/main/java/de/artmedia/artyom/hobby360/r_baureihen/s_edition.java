@@ -40,7 +40,7 @@ public class s_edition extends ActionBarActivity {
     int THUMB[] = {R.drawable.thumb_t70_hge,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy,R.drawable.thumbnail_dummy};
 
     //Entsprechende Panoramen definieren
-    String PANO[] = {"res://raw/k55/json_k55","res://raw/k55/json_k55","res://raw/k55/json_k55","res://raw/k55/json_k55"};
+    String PANO[] = {"res://raw/json_k55","res://raw/json_k55","res://raw/json_k55","res://raw/json_k55"};
 
     //Modellnamen und Beschreibungen definieren;
     String MODEL[] = {"T65 GE T EDITION", "Testmodellname", "Testmodell_2", "Testmodell_3"};

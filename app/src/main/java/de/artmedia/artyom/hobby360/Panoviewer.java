@@ -1,5 +1,6 @@
 package de.artmedia.artyom.hobby360;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,13 +15,16 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.JsonReader;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.ViewGroup.LayoutParams;
 
 import com.panoramagl.PLIPanorama;
 import com.panoramagl.PLIView;
@@ -72,6 +76,28 @@ import static de.artmedia.artyom.hobby360.R.drawable.pano_rotation_2d_deactive;
 
             panorama.setImage(new PLImage(PLUtils.getBitmap(this, pano), false));
             this.setPanorama(panorama);*/
+            final Button pano_info = (Button)findViewById(R.id.pano_info);
+            pano_info.setOnClickListener(new Button.OnClickListener()
+            {
+                @Override
+                public void onClick(View arg0)
+                {
+                    LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                    View info_popup = layoutInflater.inflate(R.layout.popup_layout, null);
+                    final PopupWindow info_window = new PopupWindow(info_popup, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+
+                    Button close_popup = (Button)info_popup.findViewById(R.id.popup_weiter);
+                    close_popup.setOnClickListener(new Button.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View v)
+                        {
+                            info_window.dismiss();
+                        }
+                    });
+                    info_window.showAsDropDown(pano_info, 0, 0);
+                }
+            });
         }
 
         /*protected void onPause()
